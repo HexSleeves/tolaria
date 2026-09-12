@@ -49,7 +49,7 @@ const alphaReleaseCases = [
 
 describe('release build configuration', () => {
   it('keeps Tauri devtools out of release builds', () => {
-    const cargoManifest = readFileSync(new URL('../src-tauri/Cargo.toml', import.meta.url), 'utf8')
+    const cargoManifest = readFileSync('src-tauri/Cargo.toml', 'utf8')
     const tauriDependency = cargoManifest.split('\n').find((line) => line.startsWith('tauri = '))
 
     assert.ok(tauriDependency, 'Tauri dependency declaration must remain present')
